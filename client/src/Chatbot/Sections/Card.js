@@ -1,5 +1,7 @@
 import React from 'react'
-import { Card, Icon } from 'antd';
+import { Card } from 'antd';
+
+import { EllipsisOutlined } from '@ant-design/icons';
 
 const { Meta } = Card;
 
@@ -14,7 +16,7 @@ function CardComponent(props) {
             }
             actions={[
                 <a target="_blank" rel="noopener noreferrer" href={props.cardInfo.fields.link.stringValue}>
-                    <Icon type="ellipsis" key="ellipsis" />
+                    <EllipsisOutlined key="ellipsis" />
                 </a>
             ]}
         >

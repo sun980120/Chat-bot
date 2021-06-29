@@ -3,9 +3,14 @@ import Axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { saveMessage } from '../_actions/message_actions';
 import Message from './Sections/Message';
-import { List, Icon, Avatar } from 'antd';
+import { List, Avatar } from 'antd';
+
+import { RobotOutlined,SmileOutlined } from '@ant-design/icons';
+
 import Card from "./Sections/Card";
+
 function Chatbot() {
+
     const dispatch = useDispatch();
     const messagesFromRedux = useSelector(state => state.message.messages)
 
@@ -59,10 +64,7 @@ function Chatbot() {
                     }
                 }
             }
-
             dispatch(saveMessage(conversation))
-
-
         }
 
     }
@@ -133,7 +135,7 @@ function Chatbot() {
             return <Message key={i} who={message.who} text={message.content.text.text} />
         } else if (message.content && message.content.payload.fields.card) {
 
-            const AvatarSrc = message.who === 'bot' ? <Icon type="robot" /> : <Icon type="smile" />
+            const AvatarSrc = message.who === 'bot' ? <RobotOutlined /> : <SmileOutlined />
 
             return <div>
                 <List.Item style={{ padding: '1rem' }}>

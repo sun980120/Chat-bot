@@ -15,8 +15,7 @@ const sessionPath = sessionClient.sessionPath(projectId, sessionId);
 
 router.post('/textQuery', async(req, res) => {
     // A unique identifier for the given session
-
-    console.log(req.body.text);
+    
     // The text query request.
     const request = {
         session: sessionPath,
@@ -28,8 +27,7 @@ router.post('/textQuery', async(req, res) => {
                 languageCode: languageCode,
             },
         },
-    };  
-    console.log(request)
+    };
     // Send request and log result
     const responses = await sessionClient.detectIntent(request);
     console.log('Detected intent');
@@ -43,7 +41,6 @@ router.post('/textQuery', async(req, res) => {
 router.post('/eventQuery', async(req, res) => {
     // A unique identifier for the given session
 
-    console.log(req.body.event);
     // The text query request.
     const request = {
         session: sessionPath,
